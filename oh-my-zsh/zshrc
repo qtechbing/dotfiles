@@ -50,10 +50,10 @@ plugins=(git brew conda)
 # User configuration
 
 export PATH="$PATH:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
-export PATH="/Users/jinyang/anaconda/bin:$PATH"
+export PATH="$HOME/anaconda/bin:$PATH"
 export PATH="/usr/texbin:$PATH"
-export PATH="/Users/jinyang/Library/Android/sdk/platform-tools:$PATH"
-export PATH="/Users/jinyang/Library/Android/sdk/tools:$PATH"
+export PATH="$HOME/Library/Android/sdk/platform-tools:$PATH"
+export PATH="$HOME/Library/Android/sdk/tools:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
