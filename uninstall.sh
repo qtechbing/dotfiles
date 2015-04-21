@@ -2,6 +2,6 @@
 cd ~
 rm ~/.latexmkrc
 rm ~/.hammerspoon
-rm ~/.oh-my-zsh
 rm ~/.zshrc
+mv ~/.zshrc.backup ~/.zshrc
 rm /usr/local/bin/ec
