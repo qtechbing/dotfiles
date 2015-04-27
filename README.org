@@ -1,0 +1,18 @@
+* Dotfiles
+- ec: emacsclient script
+- hammerspoon: window manager
+- latexmkrc: auctex
+- oh-my-zsh: personal settings
+
+* Install
+** New machine
+1. Install =Xcode= from App Store.
+2. Clone this repo to =~=
+3. Run =new-mac-setup.sh= to install necessary softwares, basically based on Homebrew.
+4. Run =install.sh= to install dotfiles.
+5. (optional) Clone =emacs.d= to =~= and rename it as =~/.emacs.d=.
+** Old machine
+Ref =New machine= 2. 4. 5.
+
+* Uninstall
+Run =uninstall.sh=.
