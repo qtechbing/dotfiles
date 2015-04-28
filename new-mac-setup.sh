@@ -14,6 +14,7 @@ brew install --with-srgb --with-cocoa emacs
 brew install wget
 brew install tree
 brew install htop
+brew install cheat
 
 brew cask install iterm2
 brew cask install alfred
