@@ -28,3 +28,4 @@ brew cask install qq
 brew cask install caffeine
 brew cask install flux
 brew cask install mactex
+brew cask install thunder
