@@ -31,3 +31,4 @@ brew cask install flux
 brew cask install mactex
 brew cask install thunder
 brew cask install mplayer
+brew cask install neteasemusic
