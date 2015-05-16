@@ -20,8 +20,10 @@ brew cask install iterm2
 brew cask install alfred
 brew cask install tunnelblick
 brew cask install hammerspoon
+brew cask install squirrel
 brew cask install firefox
 brew cask install pycharm
+brew cask install skim
 brew cask install skype
 brew cask install dropbox
 brew cask install racket
