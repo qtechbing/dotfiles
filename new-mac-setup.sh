@@ -17,6 +17,7 @@ brew install htop
 brew install cheat
 
 brew cask install iterm2
+brew cask install go2shell
 brew cask install alfred
 brew cask install tunnelblick
 brew cask install hammerspoon
