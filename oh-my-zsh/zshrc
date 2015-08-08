@@ -45,7 +45,7 @@ ZSH_THEME="fino-time"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git brew conda)
+plugins=(git brew conda cabal ghc)
 
 # User configuration
 
@@ -55,6 +55,8 @@ export PATH="/usr/texbin:$PATH"
 export PATH="$HOME/Library/Android/sdk/platform-tools:$PATH"
 export PATH="$HOME/Library/Android/sdk/tools:$PATH"
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export PATH="$PATH:/usr/local/CrossPack-avr"
+export PATH="$HOME/Library/Haskell/bin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -86,4 +88,3 @@ export LANG=en_US.UTF-8
 alias cls="clear"
 alias la="ls -a"
 alias htop="sudo htop"
-

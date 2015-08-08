@@ -11,6 +11,7 @@ brew update
 brew cask update
 
 brew install --with-srgb --with-cocoa emacs
+brew install the_silver_searcher
 brew install wget
 brew install tree
 brew install htop
