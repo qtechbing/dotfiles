@@ -4,13 +4,15 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
 \curl -sSL https://get.rvm.io | bash
 
-
 brew install git
 brew install caskroom/cask/brew-cask
 brew update
 brew cask update
 
 brew install --with-srgb --with-cocoa emacs
+git clone https://github.com/jinyangustc/prelude.git
+ln -s ~/prelude/ ~/.emacs.d/
+
 brew install the_silver_searcher
 brew install wget
 brew install tree
