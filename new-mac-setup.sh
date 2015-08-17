@@ -10,9 +10,6 @@ brew update
 brew cask update
 
 brew install --with-srgb --with-cocoa emacs
-git clone https://github.com/jinyangustc/prelude.git
-ln -s ~/prelude/ ~/.emacs.d/
-
 brew install the_silver_searcher
 brew install wget
 brew install tree

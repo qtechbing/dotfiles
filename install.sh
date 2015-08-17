@@ -5,3 +5,5 @@ ln -s ~/dotfiles/hammerspoon ~/.hammerspoon
 mv ~/.zshrc ~/.zshrc.backup
 ln -s ~/dotfiles/oh-my-zsh/zshrc ~/.zshrc
 ln -s ~/dotfiles/ec /usr/local/bin/ec
+git clone https://github.com/jinyangustc/prelude.git
+ln -s ~/prelude/ ~/.emacs.d/
