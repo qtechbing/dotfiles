@@ -95,6 +95,35 @@ function config()
                      hs.reload()
                      hs.alert.show("Config loaded")
    end)
+
+   -- Safari tab keys
+   hs.hotkey.bind({"cmd"}, "1", function()
+         hs.applescript._applescript('tell front window of app "Safari" to set current tab to tab 1')
+   end)
+   hs.hotkey.bind({"cmd"}, "2", function()
+         hs.applescript._applescript('tell front window of app "Safari" to set current tab to tab 2')
+   end)
+   hs.hotkey.bind({"cmd"}, "3", function()
+         hs.applescript._applescript('tell front window of app "Safari" to set current tab to tab 3')
+   end)
+   hs.hotkey.bind({"cmd"}, "4", function()
+         hs.applescript._applescript('tell front window of app "Safari" to set current tab to tab 4')
+   end)
+   hs.hotkey.bind({"cmd"}, "5", function()
+         hs.applescript._applescript('tell front window of app "Safari" to set current tab to tab 5')
+   end)
+   hs.hotkey.bind({"cmd"}, "6", function()
+         hs.applescript._applescript('tell front window of app "Safari" to set current tab to tab 6')
+   end)
+   hs.hotkey.bind({"cmd"}, "7", function()
+         hs.applescript._applescript('tell front window of app "Safari" to set current tab to tab 7')
+   end)
+   hs.hotkey.bind({"cmd"}, "8", function()
+         hs.applescript._applescript('tell front window of app "Safari" to set current tab to tab 8')
+   end)
+   hs.hotkey.bind({"cmd"}, "9", function()
+         hs.applescript._applescript('tell front window of app "Safari" to set current tab to tab 9')
+   end)
 end
 
 -----------------------
@@ -282,10 +311,10 @@ end
 -- |        |        |
 -- +-----------------+
 function hs.window.right(win)
-   local minFrame = win:screen():minFrame(false)
-   minFrame.x = minFrame.x + (minFrame.w/2)
-   minFrame.w = minFrame.w/2
-   win:setFrame(minFrame)
+   local currentFrame = win:screen():frame()
+   currentFrame.x = currentFrame.x + (currentFrame.w/2)
+   currentFrame.w = currentFrame.w/2
+   win:setFrame(currentFrame)
 end
 
 -- +-----------------+
@@ -294,9 +323,9 @@ end
 -- |        |        |
 -- +-----------------+
 function hs.window.left(win)
-   local minFrame = (win:screen()):minFrame(false)
-   minFrame.w = minFrame.w/2
-   win:setFrame(minFrame)
+   local currentFrame = (win:screen()):frame()
+   currentFrame.w = currentFrame.w/2
+   win:setFrame(currentFrame)
 end
 
 -- +-----------------+
@@ -305,9 +334,9 @@ end
 -- |                 |
 -- +-----------------+
 function hs.window.up(win)
-   local minFrame = win:screen():minFrame(false)
-   minFrame.h = minFrame.h/2
-   win:setFrame(minFrame)
+   local currentFrame = win:screen():frame()
+   currentFrame.h = currentFrame.h/2
+   win:setFrame(currentFrame)
 end
 
 -- +-----------------+
@@ -316,10 +345,10 @@ end
 -- |      HERE       |
 -- +-----------------+
 function hs.window.down(win)
-   local minFrame = win:screen():minFrame(false)
-   minFrame.y = minFrame.y + minFrame.h/2
-   minFrame.h = minFrame.h/2
-   win:setFrame(minFrame)
+   local currentFrame = win:screen():frame()
+   currentFrame.y = currentFrame.y + currentFrame.h/2
+   currentFrame.h = currentFrame.h/2
+   win:setFrame(currentFrame)
 end
 
 -- +-----------------+
@@ -328,10 +357,10 @@ end
 -- |                 |
 -- +-----------------+
 function hs.window.upLeft(win)
-   local minFrame = win:screen():minFrame(false)
-   minFrame.w = minFrame.w/2
-   minFrame.h = minFrame.h/2
-   win:setFrame(minFrame)
+   local currentFrame = win:screen():frame()
+   currentFrame.w = currentFrame.w/2
+   currentFrame.h = currentFrame.h/2
+   win:setFrame(currentFrame)
 end
 
 -- +-----------------+
@@ -340,12 +369,12 @@ end
 -- |  HERE  |        |
 -- +-----------------+
 function hs.window.downLeft(win)
-   local minFrame = win:screen():minFrame(false)
+   local currentFrame = win:screen():frame()
    win:setFrame({
-         x = minFrame.x,
-         y = minFrame.y + minFrame.h/2,
-         w = minFrame.w/2,
-         h = minFrame.h/2
+         x = currentFrame.x,
+         y = currentFrame.y + currentFrame.h/2,
+         w = currentFrame.w/2,
+         h = currentFrame.h/2
    })
 end
 
@@ -355,12 +384,12 @@ end
 -- |        |  HERE  |
 -- +-----------------+
 function hs.window.downRight(win)
-   local minFrame = win:screen():minFrame(false)
+   local currentFrame = win:screen():frame()
    win:setFrame({
-         x = minFrame.x + minFrame.w/2,
-         y = minFrame.y + minFrame.h/2,
-         w = minFrame.w/2,
-         h = minFrame.h/2
+         x = currentFrame.x + currentFrame.w/2,
+         y = currentFrame.y + currentFrame.h/2,
+         w = currentFrame.w/2,
+         h = currentFrame.h/2
    })
 end
 
@@ -370,12 +399,12 @@ end
 -- |                 |
 -- +-----------------+
 function hs.window.upRight(win)
-   local minFrame = win:screen():minFrame(false)
+   local currentFrame = win:screen():frame()
    win:setFrame({
-         x = minFrame.x + minFrame.w/2,
-         y = minFrame.y,
-         w = minFrame.w/2,
-         h = minFrame.h/2
+         x = currentFrame.x + currentFrame.w/2,
+         y = currentFrame.y,
+         w = currentFrame.w/2,
+         h = currentFrame.h/2
    })
 end
 
@@ -389,8 +418,8 @@ end
 -- Where the window's size is equal to
 -- the smaller available screen size
 function hs.window.fullscreenCenter(win)
-   local minFrame = win:screen():minFrame(false)
-   win:setFrame(minFrame)
+   local currentFrame = win:screen():frame()
+   win:setFrame(currentFrame)
 end
 
 -- +------------------+
@@ -419,12 +448,12 @@ end
 -- |                  |
 -- +------------------+
 function hs.window.fullscreenWidth(win)
-   local minFrame = win:screen():minFrame(false)
+   local currentFrame = win:screen():frame()
    win:setFrame({
          x = win:screen():frame().x,
-         y = minFrame.y,
+         y = currentFrame.y,
          w = win:screen():frame().w,
-         h = minFrame.h
+         h = currentFrame.h
    })
 end
 
@@ -457,3 +486,8 @@ end
 config()
 local appWatcher = hs.application.watcher.new(applicationWatcher)
 appWatcher:start()
+
+----------------
+-- SAFARI TAB --
+----------------
+
