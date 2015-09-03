@@ -1,5 +1,7 @@
 #!/bin/sh
 cd ~
+mv ~/.bash_profile ~/.bash_profile.backup
+ln -s ~/dotfiles/bash_profile ~/.bash_profile
 ln -s ~/dotfiles/latexmkrc ~/.latexmkrc
 ln -s ~/dotfiles/hammerspoon ~/.hammerspoon
 mv ~/.zshrc ~/.zshrc.backup

@@ -1,5 +1,7 @@
 #!/bin/sh
 cd ~
+rm ~/.bash_profile
+mv ~/.bash_profile.backup ~/.bash_profile
 rm ~/.latexmkrc
 rm ~/.hammerspoon
 rm ~/.zshrc
