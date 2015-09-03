@@ -91,7 +91,7 @@ function config()
 
    hs.hotkey.bind(ctrl_alt, "m", function()
                      local win = hs.window.focusedWindow()
-                     win:moveToScreen(hs.screen:next())
+                     win:moveToScreen(hs.screen.theOtherScreen())
    end)
 end
 
@@ -287,8 +287,8 @@ function applicationWatcher(appName, eventType, appObject)
 end
 
 config()
-local appWatcher = hs.application.watcher.new(applicationWatcher)
-appWatcher:start()
+-- local appWatcher = hs.application.watcher.new(applicationWatcher)
+-- appWatcher:start()
 
 ----------------
 -- SAFARI TAB --
