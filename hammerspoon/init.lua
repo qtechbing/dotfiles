@@ -25,42 +25,42 @@ hs.window.animationDuration = 0
 --------------------------------------------------------------------------------
 
 function config()
-   hs.hotkey.bind(ctrl_alt, "right", function()
+   hs.hotkey.bind(ctrl_alt, "l", function()
                      local win = hs.window.focusedWindow()
                      win:right()
    end)
 
-   hs.hotkey.bind(ctrl_alt, "left", function()
+   hs.hotkey.bind(ctrl_alt, "j", function()
                      local win = hs.window.focusedWindow()
                      win:left()
    end)
 
-   hs.hotkey.bind(ctrl_alt, "up", function()
+   hs.hotkey.bind(ctrl_alt, "i", function()
                      local win = hs.window.focusedWindow()
                      win:up()
    end)
 
-   hs.hotkey.bind(ctrl_alt, "down", function()
+   hs.hotkey.bind(ctrl_alt, "k", function()
                      local win = hs.window.focusedWindow()
                      win:down()
    end)
 
-   hs.hotkey.bind(ctrl_alt_cmd, "left", function()
+   hs.hotkey.bind(ctrl_alt_cmd, "j", function()
                      local win = hs.window.focusedWindow()
                      win:upLeft()
    end)
 
-   hs.hotkey.bind(ctrl_alt_cmd, "down", function()
+   hs.hotkey.bind(ctrl_alt_cmd, "k", function()
                      local win = hs.window.focusedWindow()
                      win:downLeft()
    end)
 
-   hs.hotkey.bind(ctrl_alt_cmd, "right", function()
+   hs.hotkey.bind(ctrl_alt_cmd, "l", function()
                      local win = hs.window.focusedWindow()
                      win:downRight()
    end)
 
-   hs.hotkey.bind(ctrl_alt_cmd, "up", function()
+   hs.hotkey.bind(ctrl_alt_cmd, "i", function()
                      local win = hs.window.focusedWindow()
                      win:upRight()
    end)
