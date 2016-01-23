@@ -4,6 +4,8 @@
 
 local ctrl_alt = {"ctrl", "alt"}
 local ctrl_alt_cmd = {"ctrl", "alt", "cmd"}
+local alt_cmd = {"cmd", "alt"}
+
 
 --------------------
 -- CONFIGURATIONS --
@@ -23,6 +25,11 @@ hs.window.animationDuration = 0
 --
 -- It searches for application "name" and call "func" for each window object
 --------------------------------------------------------------------------------
+
+
+------------------
+-- BASIC CONFIG --
+------------------
 
 function config()
    hs.hotkey.bind(ctrl_alt, "l", function()
@@ -92,6 +99,24 @@ function config()
    hs.hotkey.bind(ctrl_alt, "m", function()
                      local win = hs.window.focusedWindow()
                      win:moveToScreen(hs.screen.theOtherScreen())
+   end)
+
+   hs.hotkey.bind(alt_cmd, "1", function ()
+                     local macScreen = "Color LCD"
+                     local layout = {
+                        {"Safari", nil, macScreen, hs.layout.right50, nil, nil},
+                        {"Emacs", nil, macScreen, hs.layout.left50, nil, nil}
+                     }
+                     hs.layout.apply(layout)
+   end)
+
+   hs.hotkey.bind(alt_cmd, "1", function ()
+                     local macScreen = "Color LCD"
+                     local layout = {
+                        {"Safari", nil, macScreen, hs.layout.right50, nil, nil},
+                        {"Emacs", nil, macScreen, hs.layout.left50, nil, nil}
+                     }
+                     hs.layout.apply(layout)
    end)
 end
 
@@ -289,8 +314,3 @@ end
 config()
 -- local appWatcher = hs.application.watcher.new(applicationWatcher)
 -- appWatcher:start()
-
-----------------
--- SAFARI TAB --
-----------------
-
