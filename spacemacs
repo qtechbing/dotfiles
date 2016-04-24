@@ -26,19 +26,21 @@ values."
      auto-completion
      better-defaults
      coq
+     clojure
      emacs-lisp
-     extra-langs
+     ;; extra-langs
      git
+     javascript
      haskell
-     java
      latex
      markdown
      org
      python
-     scala
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
+     yaml
+     c-c++
      ;; spell-checking
      ;; syntax-checking
      ;; version-control
@@ -70,7 +72,7 @@ values."
    ;; This variable has no effect if Emacs is launched with the parameter
    ;; `--insecure' which forces the value of this variable to nil.
    ;; (default t)
-   dotspacemacs-elpa-https t
+   dotspacemacs-elpa-https nil
    ;; Maximum allowed time in seconds to contact an ELPA repository.
    dotspacemacs-elpa-timeout 5
    ;; If non nil then spacemacs will check for updates at startup
@@ -114,8 +116,8 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
-   dotspacemacs-default-font '("-*-Input Mono-normal-normal-normal-*-14-*-*-*-m-0-iso10646-1"
-                               :size 14
+   dotspacemacs-default-font '("-*-Input Mono-normal-normal-normal-*-11-*-*-*-m-0-iso10646-1"
+                               :size 11
                                :weight normal
                                :width normal
                                :powerline-scale 1)
@@ -196,7 +198,7 @@ values."
    ;; If non nil the frame is maximized when Emacs starts up.
    ;; Takes effect only if `dotspacemacs-fullscreen-at-startup' is nil.
    ;; (default nil) (Emacs 24.4+ only)
-   dotspacemacs-maximized-at-startup t
+   dotspacemacs-maximized-at-startup nil
    ;; A value from the range (0..100), in increasing opacity, which describes
    ;; the transparency level of a frame when it's active or selected.
    ;; Transparency can be toggled through `toggle-transparency'. (default 90)
@@ -266,7 +268,7 @@ layers configuration. You are free to put any user code."
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (tao-theme wolfram-mode stan-mode scad-mode qml-mode matlab-mode julia-mode arduino-mode company-coq auctex-latexmk packed smartparens projectile helm helm-core magit spinner pythonic eink-theme noflet ensime xterm-color toc-org smeargle shm shell-pop pyvenv pytest pyenv-mode pip-requirements orgit org-repo-todo org-present org-pomodoro org-plus-contrib org-bullets multi-term mmm-mode markdown-toc markdown-mode magit-gitflow hy-mode htmlize hindent helm-pydoc helm-gitignore helm-company helm-c-yasnippet haskell-snippets haskell-mode gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger ghc gh-md evil-magit eshell-prompt-extras esh-help emacs-eclim cython-mode company-statistics company-quickhelp company-ghc company-cabal company-auctex company-anaconda company cmm-mode auto-yasnippet auctex anaconda-mode ac-ispell ws-butler window-numbering volatile-highlights vi-tilde-fringe spaceline smooth-scrolling restart-emacs rainbow-delimiters popwin persp-mode pcre2el paradox page-break-lines open-junk-file neotree move-text macrostep lorem-ipsum linum-relative leuven-theme info+ indent-guide ido-vertical-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-jumper evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eval-sexp-fu elisp-slime-nav define-word clean-aindent-mode buffer-move bracketed-paste auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line quelpa package-build use-package which-key bind-key bind-map evil spacemacs-theme)))
+    (seq parent-mode flx iedit pos-tip company-math math-symbol-lists highlight pkg-info epl web-beautify json-mode json-snatcher json-reformat js2-refactor js2-mode js-doc company-tern dash-functional tern coffee-mode clj-refactor inflections edn multiple-cursors paredit peg cider-eval-sexp-fu cider queue clojure-mode anzu popup disaster company-c-headers cmake-mode clang-format s yaml-mode hydra alert log4e gntp request git-commit f powerline auto-complete avy yasnippet magit-popup with-editor async dash tao-theme wolfram-mode stan-mode scad-mode qml-mode matlab-mode julia-mode arduino-mode company-coq auctex-latexmk packed smartparens projectile helm helm-core magit spinner pythonic eink-theme noflet ensime xterm-color toc-org smeargle shm shell-pop pyvenv pytest pyenv-mode pip-requirements orgit org-repo-todo org-present org-pomodoro org-plus-contrib org-bullets multi-term mmm-mode markdown-toc markdown-mode magit-gitflow hy-mode htmlize hindent helm-pydoc helm-gitignore helm-company helm-c-yasnippet haskell-snippets haskell-mode gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger ghc gh-md evil-magit eshell-prompt-extras esh-help emacs-eclim cython-mode company-statistics company-quickhelp company-ghc company-cabal company-auctex company-anaconda company cmm-mode auto-yasnippet auctex anaconda-mode ac-ispell ws-butler window-numbering volatile-highlights vi-tilde-fringe spaceline smooth-scrolling restart-emacs rainbow-delimiters popwin persp-mode pcre2el paradox page-break-lines open-junk-file neotree move-text macrostep lorem-ipsum linum-relative leuven-theme info+ indent-guide ido-vertical-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-jumper evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eval-sexp-fu elisp-slime-nav define-word clean-aindent-mode buffer-move bracketed-paste auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line quelpa package-build use-package which-key bind-key bind-map evil spacemacs-theme)))
  '(paradox-github-token t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
