@@ -32,7 +32,8 @@ values."
      git
      javascript
      haskell
-     latex
+     (latex :variables
+            latex-build-command "LatexMk")
      markdown
      org
      python
@@ -49,7 +50,8 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(tao-theme)
+   dotspacemacs-additional-packages '(tao-theme
+                                      eink-theme)
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -173,7 +175,7 @@ values."
    dotspacemacs-helm-no-header nil
    ;; define the position to display `helm', options are `bottom', `top',
    ;; `left', or `right'. (default 'bottom)
-   dotspacemacs-helm-position 'right
+   dotspacemacs-helm-position 'bottom
    ;; If non nil the paste micro-state is enabled. When enabled pressing `p`
    ;; several times cycle between the kill ring content. (default nil)
    dotspacemacs-enable-paste-micro-state nil
@@ -257,6 +259,10 @@ layers configuration. You are free to put any user code."
   (setq powerline-default-separator 'nil)
   (setq-default evil-escape-key-sequence "jk")
   (setq-default evil-escape-delay 0.2)
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((ditaa . t)))
+  ;; (setq org-ditaa-jar-path "/usr/local/bin/ditaa")
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
