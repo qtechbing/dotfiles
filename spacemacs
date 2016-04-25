@@ -36,6 +36,8 @@ values."
             latex-build-command "LatexMk")
      markdown
      org
+     (org :variables
+          org-latex-pdf-process '("latexmk -xelatex -quiet -shell-escape -f %f"))
      python
      (shell :variables
             shell-default-height 30
