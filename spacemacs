@@ -36,12 +36,14 @@ values."
             latex-build-command "LatexMk")
      markdown
      org
-     (org :variables
-          org-latex-pdf-process '("latexmk -xelatex -quiet -shell-escape -f %f"))
+     ;; (org :variables
+     ;;     org-latex-pdf-process '("latexmk -xelatex -quiet -shell-escape -f %f"))
      python
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
+     (spell-checking :variables
+                     spell-checking-enable-by-default t)
      yaml
      c-c++
      ;; spell-checking
@@ -108,19 +110,19 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(tao-yang
+   dotspacemacs-themes '(zenburn
                          spacemacs-dark
                          spacemacs-light
                          solarized-light
                          solarized-dark
                          leuven
                          monokai
-                         zenburn)
+                         tao-yang)
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
-   dotspacemacs-default-font '("-*-Input Mono-normal-normal-normal-*-11-*-*-*-m-0-iso10646-1"
+   dotspacemacs-default-font '("-*-Source Code Pro-normal-normal-normal-*-11-*-*-*-m-0-iso10646-1"
                                :size 11
                                :weight normal
                                :width normal
@@ -264,6 +266,10 @@ layers configuration. You are free to put any user code."
   (org-babel-do-load-languages
    'org-babel-load-languages
    '((ditaa . t)))
+  (add-to-list 'org-latex-packages-alist '("" "minted"))
+  (setq org-latex-listings 'minted)
+  (setq org-latex-pdf-process
+        '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
   ;; (setq org-ditaa-jar-path "/usr/local/bin/ditaa")
   )
 
