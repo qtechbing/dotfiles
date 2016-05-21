@@ -30,14 +30,18 @@ values."
      emacs-lisp
      ;; extra-langs
      git
+     gnus
      javascript
+     java
      haskell
      (latex :variables
             latex-build-command "LatexMk")
      markdown
+     ;; (mu4e :variables
+     ;;       mu4e-installation-path "/usr/local/Cellar/mu/0.9.16/share/emacs/site-lisp")
      org
-     ;; (org :variables
-     ;;     org-latex-pdf-process '("latexmk -xelatex -quiet -shell-escape -f %f"))
+     ;; gtd
+     bh-org
      python
      (shell :variables
             shell-default-height 30
@@ -54,8 +58,10 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(tao-theme
-                                      eink-theme)
+   dotspacemacs-additional-packages '(
+                                      tao-theme
+                                      eink-theme
+                                      )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -110,20 +116,24 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(zenburn
-                         spacemacs-dark
+   dotspacemacs-themes '(
                          spacemacs-light
+                         tao-yang
+                         spacemacs-dark
+                         zenburn
                          solarized-light
                          solarized-dark
                          leuven
                          monokai
-                         tao-yang)
+                         )
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
-   dotspacemacs-default-font '("-*-Source Code Pro-normal-normal-normal-*-11-*-*-*-m-0-iso10646-1"
-                               :size 11
+   dotspacemacs-default-font '(
+                               "-*-Source Code Pro-normal-normal-normal-*-13-*-*-*-m-0-iso10646-1"
+                               ;; "-*-Input Mono-normal-normal-normal-*-11-*-*-*-m-0-iso10646-1"
+                               :size 13
                                :weight normal
                                :width normal
                                :powerline-scale 1)
@@ -222,7 +232,7 @@ values."
    ;; If non nil line numbers are turned on in all `prog-mode' and `text-mode'
    ;; derivatives. If set to `relative', also turns on relative line numbers.
    ;; (default nil)
-   dotspacemacs-line-numbers t
+   dotspacemacs-line-numbers nil
    ;; If non-nil smartparens-strict-mode will be enabled in programming modes.
    ;; (default nil)
    dotspacemacs-smartparens-strict-mode nil
@@ -261,16 +271,9 @@ in `dotspacemacs/user-config'."
 This function is called at the very end of Spacemacs initialization after
 layers configuration. You are free to put any user code."
   (setq powerline-default-separator 'nil)
+  (spaceline-compile)
   (setq-default evil-escape-key-sequence "jk")
   (setq-default evil-escape-delay 0.2)
-  (org-babel-do-load-languages
-   'org-babel-load-languages
-   '((ditaa . t)))
-  (add-to-list 'org-latex-packages-alist '("" "minted"))
-  (setq org-latex-listings 'minted)
-  (setq org-latex-pdf-process
-        '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
-  ;; (setq org-ditaa-jar-path "/usr/local/bin/ditaa")
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -283,7 +286,10 @@ layers configuration. You are free to put any user code."
  '(package-selected-packages
    (quote
     (seq parent-mode flx iedit pos-tip company-math math-symbol-lists highlight pkg-info epl web-beautify json-mode json-snatcher json-reformat js2-refactor js2-mode js-doc company-tern dash-functional tern coffee-mode clj-refactor inflections edn multiple-cursors paredit peg cider-eval-sexp-fu cider queue clojure-mode anzu popup disaster company-c-headers cmake-mode clang-format s yaml-mode hydra alert log4e gntp request git-commit f powerline auto-complete avy yasnippet magit-popup with-editor async dash tao-theme wolfram-mode stan-mode scad-mode qml-mode matlab-mode julia-mode arduino-mode company-coq auctex-latexmk packed smartparens projectile helm helm-core magit spinner pythonic eink-theme noflet ensime xterm-color toc-org smeargle shm shell-pop pyvenv pytest pyenv-mode pip-requirements orgit org-repo-todo org-present org-pomodoro org-plus-contrib org-bullets multi-term mmm-mode markdown-toc markdown-mode magit-gitflow hy-mode htmlize hindent helm-pydoc helm-gitignore helm-company helm-c-yasnippet haskell-snippets haskell-mode gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger ghc gh-md evil-magit eshell-prompt-extras esh-help emacs-eclim cython-mode company-statistics company-quickhelp company-ghc company-cabal company-auctex company-anaconda company cmm-mode auto-yasnippet auctex anaconda-mode ac-ispell ws-butler window-numbering volatile-highlights vi-tilde-fringe spaceline smooth-scrolling restart-emacs rainbow-delimiters popwin persp-mode pcre2el paradox page-break-lines open-junk-file neotree move-text macrostep lorem-ipsum linum-relative leuven-theme info+ indent-guide ido-vertical-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-jumper evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eval-sexp-fu elisp-slime-nav define-word clean-aindent-mode buffer-move bracketed-paste auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line quelpa package-build use-package which-key bind-key bind-map evil spacemacs-theme)))
- '(paradox-github-token t))
+ '(paradox-github-token t)
+ '(send-mail-function (quote mailclient-send-it))
+ '(smtpmail-smtp-server "smtp.vip.163.com")
+ '(smtpmail-smtp-service 25))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
