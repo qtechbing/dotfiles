@@ -25,31 +25,32 @@ values."
      ;; ----------------------------------------------------------------
      auto-completion
      better-defaults
+     bh-org
+     c-c++
      coq
      clojure
      emacs-lisp
      ;; extra-langs
      git
      gnus
+     haskell
      javascript
      java
-     haskell
      (latex :variables
             latex-build-command "LatexMk")
      markdown
      ;; (mu4e :variables
      ;;       mu4e-installation-path "/usr/local/Cellar/mu/0.9.16/share/emacs/site-lisp")
      org
-     ;; gtd
-     bh-org
      python
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
      (spell-checking :variables
                      spell-checking-enable-by-default t)
+     sql
+     semantic                           ; Need semantic to make imenu work properly in python mode
      yaml
-     c-c++
      ;; spell-checking
      ;; syntax-checking
      ;; version-control
