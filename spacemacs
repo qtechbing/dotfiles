@@ -34,6 +34,7 @@ values."
      git
      gnus
      haskell
+     ipython-notebook
      javascript
      java
      (latex :variables
@@ -42,14 +43,15 @@ values."
      ;; (mu4e :variables
      ;;       mu4e-installation-path "/usr/local/Cellar/mu/0.9.16/share/emacs/site-lisp")
      org
-     python
+     (python :variables
+             python-test-runner 'pytest)
+     semantic                           ; Need semantic to make imenu work properly in python mode
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
      (spell-checking :variables
                      spell-checking-enable-by-default t)
      sql
-     semantic                           ; Need semantic to make imenu work properly in python mode
      yaml
      ;; spell-checking
      ;; syntax-checking
@@ -215,7 +217,7 @@ values."
    ;; If non nil the frame is maximized when Emacs starts up.
    ;; Takes effect only if `dotspacemacs-fullscreen-at-startup' is nil.
    ;; (default nil) (Emacs 24.4+ only)
-   dotspacemacs-maximized-at-startup nil
+   dotspacemacs-maximized-at-startup t
    ;; A value from the range (0..100), in increasing opacity, which describes
    ;; the transparency level of a frame when it's active or selected.
    ;; Transparency can be toggled through `toggle-transparency'. (default 90)
