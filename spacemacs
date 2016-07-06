@@ -32,9 +32,9 @@ values."
      emacs-lisp
      ;; extra-langs
      git
-     gnus
-     haskell
-     ipython-notebook
+     gtags
+     ;; gnus
+     ;; haskell
      javascript
      java
      (latex :variables
@@ -45,6 +45,9 @@ values."
      org
      (python :variables
              python-test-runner 'pytest)
+     racket
+     research
+     scala
      semantic                           ; Need semantic to make imenu work properly in python mode
      (shell :variables
             shell-default-height 30

@@ -52,6 +52,7 @@ plugins=(git brew conda cabal ghc z lein stack ag sqlite3)
 
 # User configuration
 
+export PATH="$HOME/bin:$PATH"
 export PATH="$PATH:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
 export PATH="$HOME/anaconda/bin:$PATH"
 export PATH="/usr/texbin:$PATH"
@@ -59,9 +60,6 @@ export PATH="$HOME/Library/Android/sdk/platform-tools:$PATH"
 export PATH="$HOME/Library/Android/sdk/tools:$PATH"
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PATH="$PATH:/usr/local/CrossPack-avr"
-export PATH="$HOME/Library/Haskell/bin:$PATH"
-export PATH="$HOME/.cabal/bin:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
 export PATH="$PATH:/usr/local/proof-general/bin"
 
 source $ZSH/oh-my-zsh.sh
